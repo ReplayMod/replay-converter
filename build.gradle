@@ -1,0 +1,27 @@
+group 'de.johni0702.mc.replay'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repo.johni0702.de/content/repositories/spacehq/'
+    }
+}
+
+dependencies {
+    compile project(':ProtocolGen')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jar {
+    from files(sourceSets.main.output.classesDir)
+    from configurations.runtime.asFileTree.files.collect {zipTree(it)}
+
+    manifest {
+        attributes 'Main-Class': 'de.johni0702.mc.replay.converter.Main'
+    }
+}

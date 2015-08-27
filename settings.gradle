@@ -1,0 +1,3 @@
+rootProject.name = 'replay-converter'
+
+include 'ProtocolGen'

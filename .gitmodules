@@ -1,0 +1,3 @@
+[submodule "ProtocolGen"]
+	path = ProtocolGen
+	url = https://github.com/Johni0702/ProtocolGen
